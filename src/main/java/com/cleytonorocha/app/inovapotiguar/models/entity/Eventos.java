@@ -4,7 +4,11 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+import com.cleytonorocha.app.inovapotiguar.models.Enum.ProcessoEmpreendedor;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,6 +40,7 @@ public class Eventos {
 
     private String texto;
 
+    @Enumerated(EnumType.STRING)
     @NotNull(message = "{inovarpotiguar.entity.eventos.processoEmpreendedor.notnull}")
     @NotEmpty(message = "{inovarpotiguar.entity.eventos.processoEmpreendedor.notempty}")
     private ProcessoEmpreendedor processoEmpreendedor;
