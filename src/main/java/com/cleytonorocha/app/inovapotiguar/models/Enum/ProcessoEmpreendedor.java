@@ -1,5 +1,7 @@
 package com.cleytonorocha.app.inovapotiguar.models.Enum;
 
+import com.cleytonorocha.app.inovapotiguar.errors.EnumIdInvalid;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -25,6 +27,6 @@ public enum ProcessoEmpreendedor {
         }
 
         
-        throw new EnumIdInvalid("Código enum ProcessoEmpreendedor inválido");
+        throw new EnumIdInvalid();
     }
 }
