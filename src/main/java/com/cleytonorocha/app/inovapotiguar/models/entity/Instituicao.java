@@ -9,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public class Instituicao {
     
@@ -16,8 +18,12 @@ public class Instituicao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotNull(message = "{inovapotiguar.entity.instituicao.nome.notNull}")
+    @NotEmpty(message = "{inovapotiguar.entity.instituicao.nome.notEmpty}")
     private String nome;
 
+    @NotNull(message = "{inovapotiguar.entity.instituicao.descricao.notNull}")
+    @NotEmpty(message = "{inovapotiguar.entity.instituicao.descricao.notEmpty}")
     private String descricao;
 
     @CNPJ
