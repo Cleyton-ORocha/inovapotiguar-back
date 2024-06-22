@@ -70,4 +70,6 @@ public class Pesquisa {
         inverseJoinColumns = @JoinColumn(name = "pesquisador_id")
     )
     private List<Pesquisador> pesquisadores;
+
+    
 }

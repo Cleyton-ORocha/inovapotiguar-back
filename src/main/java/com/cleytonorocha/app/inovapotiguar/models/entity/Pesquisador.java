@@ -67,6 +67,14 @@ public class Pesquisador {
     )
     private List<Evento> eventos;
 
+    @ManyToMany
+    @JoinTable(
+        name = "pesquisador_atuacao",
+        joinColumns = @JoinColumn(name = "pesquisador_id"),
+        inverseJoinColumns = @JoinColumn(name = "atuacao_id")
+    )
+    private List<Atuacao> atuacoes;
+
     @ManyToMany(mappedBy = "pesquisadores" ,fetch = FetchType.LAZY)
     private List<Pesquisa> pesquisas;
 

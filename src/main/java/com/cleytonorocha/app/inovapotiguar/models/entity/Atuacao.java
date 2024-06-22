@@ -53,4 +53,7 @@ public class Atuacao {
         inverseJoinColumns = @JoinColumn(name = "instituicao_id")
     )
     private List<Instituicao> instituicoes;
+
+    @ManyToMany(mappedBy = "atuacoes")
+    private List<Pesquisador> pesquisadores;
 }
