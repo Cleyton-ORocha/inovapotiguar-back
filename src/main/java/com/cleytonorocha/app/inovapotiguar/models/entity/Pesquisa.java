@@ -63,5 +63,11 @@ public class Pesquisa {
     )
     private List<Instituicao> instituicoes;
 
-    
+    @ManyToMany
+    @JoinTable(
+        name = "pesquisa_pesquisador",
+        joinColumns = @JoinColumn(name = "pesquisa_id"),
+        inverseJoinColumns = @JoinColumn(name = "pesquisador_id")
+    )
+    private List<Pesquisador> pesquisadores;
 }

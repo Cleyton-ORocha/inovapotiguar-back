@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -65,5 +66,8 @@ public class Pesquisador {
         inverseJoinColumns = @JoinColumn(name = "eventos_id")
     )
     private List<Evento> eventos;
+
+    @ManyToMany(mappedBy = "pesquisadores" ,fetch = FetchType.LAZY)
+    private List<Pesquisa> pesquisas;
 
 }
