@@ -61,4 +61,12 @@ public class Instituicao {
         inverseJoinColumns = @JoinColumn(name = "eventos_id")
     )
     private List<Evento> eventos;
+
+    @ManyToMany(mappedBy = "instituicoes")
+    private List<Pesquisa> pesquisas;
+
+    @ManyToMany(mappedBy = "instituicoes")
+    private List<Atuacao> atuacoes;
+
+
 }

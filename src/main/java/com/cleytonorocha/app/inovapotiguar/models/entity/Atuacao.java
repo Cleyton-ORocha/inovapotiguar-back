@@ -45,4 +45,12 @@ public class Atuacao {
         inverseJoinColumns = @JoinColumn(name = "evento_id")
     )
     private List<Evento> eventos;
+
+    @ManyToMany
+    @JoinTable(
+        name = "atuacao_instituicao",
+        joinColumns = @JoinColumn(name = "atuacao_id"),
+        inverseJoinColumns = @JoinColumn(name = "instituicao_id")
+    )
+    private List<Instituicao> instituicoes;
 }

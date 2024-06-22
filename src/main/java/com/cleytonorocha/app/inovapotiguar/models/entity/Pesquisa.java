@@ -54,4 +54,14 @@ public class Pesquisa {
         inverseJoinColumns = @JoinColumn(name = "eventos_id")
     )
     private List<Evento> eventos;
+
+    @ManyToMany
+    @JoinTable(
+        name = "pesquisa_instituicao",
+        joinColumns = @JoinColumn(name = "pesquisa_id"),
+        inverseJoinColumns = @JoinColumn(name = "instiuicao_id")
+    )
+    private List<Instituicao> instituicoes;
+
+    
 }
