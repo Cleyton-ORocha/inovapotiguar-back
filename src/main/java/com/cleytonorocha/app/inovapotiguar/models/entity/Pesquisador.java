@@ -1,13 +1,30 @@
 package com.cleytonorocha.app.inovapotiguar.models.entity;
 
+import java.util.List;
+
 import org.hibernate.validator.constraints.br.CPF;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pesquisador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +57,13 @@ public class Pesquisador {
     private String linkedin;
     private String instagram;
     private String twitter;
+
+    @ManyToMany
+    @JoinTable(
+        name = "pesquisador_eventos",
+        joinColumns = @JoinColumn(name = "pesquisador_id"),
+        inverseJoinColumns = @JoinColumn(name = "eventos_id")
+    )
+    private List<Evento> eventos;
 
 }
