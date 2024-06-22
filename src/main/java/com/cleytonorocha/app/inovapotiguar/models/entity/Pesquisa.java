@@ -71,5 +71,5 @@ public class Pesquisa {
     )
     private List<Pesquisador> pesquisadores;
 
-    
+    private List<ImagensPesquisa> imagens;
 }
