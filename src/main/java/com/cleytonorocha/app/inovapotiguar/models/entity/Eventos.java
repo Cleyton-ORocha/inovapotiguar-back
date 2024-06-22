@@ -57,7 +57,7 @@ public class Eventos {
 
     private List<Pesquisa> pesquisas;
 
-    private Endereco endereco;
+    private EnderecoEvento endereco;
 
     private List<Instituicao> instituicoes;
 
