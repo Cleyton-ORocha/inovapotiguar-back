@@ -1,11 +1,8 @@
 package com.cleytonorocha.app.inovapotiguar.models.entity;
 
-<<<<<<< HEAD
 
 import java.util.List;
 
-=======
->>>>>>> f193e6f76e7ba698732a724fcc95d038ab3c683d
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
