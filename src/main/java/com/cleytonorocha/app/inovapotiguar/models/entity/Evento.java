@@ -9,9 +9,12 @@ import com.cleytonorocha.app.inovapotiguar.models.Enum.ProcessoEmpreendedor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -26,8 +29,8 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Eventos {
-    
+public class Evento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -55,12 +58,16 @@ public class Eventos {
     @NotEmpty(message = "{inovarpotiguar.entity.eventos.dataFinal.notempty}")
     private LocalDateTime dataFinal;
 
+    @ManyToMany(mappedBy = "eventos")
     private List<Pesquisa> pesquisas;
 
+    @OneToOne(mappedBy = "evento", fetch = FetchType.LAZY)
     private EnderecoEvento endereco;
 
+    @ManyToMany(mappedBy = "eventos")
     private List<Instituicao> instituicoes;
 
+    @ManyToMany(mappedBy = "eventos")
     private List<Pesquisador> pesquisadores;
 
 }

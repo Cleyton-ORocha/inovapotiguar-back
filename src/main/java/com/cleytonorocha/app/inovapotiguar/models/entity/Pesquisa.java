@@ -4,11 +4,15 @@ import java.util.List;
 
 import com.cleytonorocha.app.inovapotiguar.models.Enum.PesquisaCategoria;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,6 +21,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 @Builder
@@ -41,4 +46,12 @@ public class Pesquisa {
 
     @Enumerated(EnumType.STRING)
     private PesquisaCategoria categoria;
+
+    @ManyToMany
+    @JoinTable(
+        name = "pesquisa_evento",
+        joinColumns = @JoinColumn(name = "pesquisa_id"),
+        inverseJoinColumns = @JoinColumn(name = "eventos_id")
+    )
+    private List<Evento> eventos;
 }
