@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -57,12 +58,15 @@ public class Evento {
     @NotNull(message = "{inovarpotiguar.entity.eventos.dataFinal.notnull}")
     @NotEmpty(message = "{inovarpotiguar.entity.eventos.dataFinal.notempty}")
     private LocalDateTime dataFinal;
+    
+    @OneToOne(mappedBy = "evento", fetch = FetchType.LAZY)
+    private EnderecoEvento endereco;
+
+    @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY)
+    private List<ImagensEvento> imagens;
 
     @ManyToMany(mappedBy = "eventos")
     private List<Pesquisa> pesquisas;
-
-    @OneToOne(mappedBy = "evento", fetch = FetchType.LAZY)
-    private EnderecoEvento endereco;
 
     @ManyToMany(mappedBy = "eventos")
     private List<Instituicao> instituicoes;
