@@ -1,4 +1,4 @@
-package com.cleytonorocha.app.inovapotiguar.models.ids;
+package com.cleytonorocha.app.inovapotiguar.model.ids;
 
 import java.io.Serializable;
 

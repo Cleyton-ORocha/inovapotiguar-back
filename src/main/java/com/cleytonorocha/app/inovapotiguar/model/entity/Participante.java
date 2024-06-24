@@ -1,4 +1,4 @@
-package com.cleytonorocha.app.inovapotiguar.models.entity;
+package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.time.LocalDate;
 import java.util.List;

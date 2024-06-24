@@ -1,6 +1,6 @@
-package com.cleytonorocha.app.inovapotiguar.models.entity;
+package com.cleytonorocha.app.inovapotiguar.model.entity;
 
-import com.cleytonorocha.app.inovapotiguar.models.ids.EventoIngressoID;
+import com.cleytonorocha.app.inovapotiguar.model.ids.EventoIngressoID;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

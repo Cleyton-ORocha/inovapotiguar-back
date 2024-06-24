@@ -1,4 +1,4 @@
-package com.cleytonorocha.app.inovapotiguar.models.Enum;
+package com.cleytonorocha.app.inovapotiguar.model.Enum;
 
 import com.cleytonorocha.app.inovapotiguar.errors.EnumIdInvalid;
 

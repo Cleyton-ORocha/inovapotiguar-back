@@ -1,4 +1,4 @@
-package com.cleytonorocha.app.inovapotiguar.models.entity;
+package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.cleytonorocha.app.inovapotiguar.models.Enum.ProcessoEmpreendedor;
+import com.cleytonorocha.app.inovapotiguar.model.Enum.ProcessoEmpreendedor;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;

@@ -1,8 +1,8 @@
-package com.cleytonorocha.app.inovapotiguar.models.entity;
+package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.util.List;
 
-import com.cleytonorocha.app.inovapotiguar.models.Enum.PesquisaCategoria;
+import com.cleytonorocha.app.inovapotiguar.model.Enum.PesquisaCategoria;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

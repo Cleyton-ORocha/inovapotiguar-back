@@ -1,10 +1,10 @@
-package com.cleytonorocha.app.inovapotiguar.models.entity;
+package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.util.List;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 
-import com.cleytonorocha.app.inovapotiguar.models.Enum.InstituicaoCategoria;
+import com.cleytonorocha.app.inovapotiguar.model.Enum.InstituicaoCategoria;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,4 +1,4 @@
-package com.cleytonorocha.app.inovapotiguar.models.entity;
+package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -6,7 +6,7 @@ import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.cleytonorocha.app.inovapotiguar.models.Enum.StatusPagamento;
+import com.cleytonorocha.app.inovapotiguar.model.Enum.StatusPagamento;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
