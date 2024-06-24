@@ -4,8 +4,11 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.cleytonorocha.app.inovapotiguar.models.Enum.ProcessoEmpreendedor;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -15,7 +18,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -49,7 +51,8 @@ public class Evento {
     @NotEmpty(message = "{inovarpotiguar.entity.eventos.processoEmpreendedor.notempty}")
     private ProcessoEmpreendedor processoEmpreendedor;
 
-    private final ZonedDateTime dataCriacao = ZonedDateTime.now();
+    @CreationTimestamp
+    private ZonedDateTime dataCriacao;
 
     @NotNull(message = "{inovarpotiguar.entity.eventos.dataInicio.notnull}")
     @NotEmpty(message = "{inovarpotiguar.entity.eventos.dataInicio.notempty}")
@@ -58,23 +61,26 @@ public class Evento {
     @NotNull(message = "{inovarpotiguar.entity.eventos.dataFinal.notnull}")
     @NotEmpty(message = "{inovarpotiguar.entity.eventos.dataFinal.notempty}")
     private LocalDateTime dataFinal;
-    
-    @OneToOne(mappedBy = "evento", fetch = FetchType.LAZY)
+
+    @Embedded
     private EnderecoEvento endereco;
 
     @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY)
     private List<ImagensEvento> imagens;
 
-    @ManyToMany(mappedBy = "eventos")
+    @ManyToMany(mappedBy = "eventos", fetch = FetchType.LAZY)
     private List<Pesquisa> pesquisas;
 
-    @ManyToMany(mappedBy = "eventos")
+    @ManyToMany(mappedBy = "eventos", fetch = FetchType.LAZY)
     private List<Instituicao> instituicoes;
 
-    @ManyToMany(mappedBy = "eventos")
+    @ManyToMany(mappedBy = "eventos", fetch = FetchType.LAZY)
     private List<Pesquisador> pesquisadores;
 
     @ManyToMany(mappedBy = "eventos")
     private List<Atuacao> atuacoes;
+
+    @OneToMany(mappedBy = "evento")
+    private List<EventoIngresso> ingressos;
 
 }
