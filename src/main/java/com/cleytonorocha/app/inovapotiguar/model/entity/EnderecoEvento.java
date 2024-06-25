@@ -1,9 +1,10 @@
 package com.cleytonorocha.app.inovapotiguar.model.entity;
 
+import com.cleytonorocha.app.inovapotiguar.model.Enum.UF;
+
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,30 +19,28 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EnderecoEvento {
 
-    @Id
-    private Long id;
-
-    @NotNull(message = "{inovapotiguar.entity.enderecoEvento.CEP.notNull}")
+    // @NotNull(message = "{inovapotiguar.entity.enderecoEvento.CEP.notNull}")
     private String CEP;
 
-    @NotNull(message = "{inovapotiguar.entity.enderecoEvento.pais.notNull}")
-    @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.pais.notEmpty}")
+    // @NotNull(message = "{inovapotiguar.entity.enderecoEvento.pais.notNull}")
+    // @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.pais.notEmpty}")
     private String pais;
 
-    @NotNull(message = "{inovapotiguar.entity.enderecoEvento.UF.notNull}")
-    @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.UF.notEmpty}")
-    private String UF;
+    // @NotNull(message = "{inovapotiguar.entity.enderecoEvento.UF.notNull}")
+    // @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.UF.notEmpty}")
+    @Enumerated(EnumType.STRING)
+    private UF UF;
 
-    @NotNull(message = "{inovapotiguar.entity.enderecoEvento.cidade.notNull}")
-    @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.cidade.notEmpty}")
+    // @NotNull(message = "{inovapotiguar.entity.enderecoEvento.cidade.notNull}")
+    // @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.cidade.notEmpty}")
     private String cidade;
 
-    @NotNull(message = "{inovapotiguar.entity.enderecoEvento.bairro.notNull}")
-    @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.bairro.notEmpty}")
+    // @NotNull(message = "{inovapotiguar.entity.enderecoEvento.bairro.notNull}")
+    // @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.bairro.notEmpty}")
     private String bairro;
 
-    @NotNull(message = "{inovapotiguar.entity.enderecoEvento.rua.notNull}")
-    @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.rua.notEmpty}")
+    // @NotNull(message = "{inovapotiguar.entity.enderecoEvento.rua.notNull}")
+    // @NotEmpty(message = "{inovapotiguar.entity.enderecoEvento.rua.notEmpty}")
     private String rua;
 
     // @OneToOne

@@ -1,7 +1,5 @@
 package com.cleytonorocha.app.inovapotiguar.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +19,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ImagensPesquisa {
+public class EventoImagens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,7 +28,6 @@ public class ImagensPesquisa {
     private String url;
 
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "id_pesquisa")
-    private Pesquisa pesquisa;
+    @JoinColumn(name = "evento_id")
+    private Evento evento;
 }

@@ -2,8 +2,6 @@ package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.util.List;
 
-import org.hibernate.validator.constraints.br.CNPJ;
-
 import com.cleytonorocha.app.inovapotiguar.model.Enum.InstituicaoCategoria;
 
 import jakarta.persistence.Entity;
@@ -43,7 +41,7 @@ public class Instituicao {
     @NotEmpty(message = "{inovapotiguar.entity.instituicao.descricao.notEmpty}")
     private String descricao;
 
-    @CNPJ
+    // @CNPJ
     private String CNPJ;
 
     @Enumerated(EnumType.STRING)

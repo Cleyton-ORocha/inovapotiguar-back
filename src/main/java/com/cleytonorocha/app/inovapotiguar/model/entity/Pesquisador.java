@@ -2,8 +2,6 @@ package com.cleytonorocha.app.inovapotiguar.model.entity;
 
 import java.util.List;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,7 +28,7 @@ public class Pesquisador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @CPF
+    // @CPF
     @NotNull(message = "${inovapotiguar.entity.enderecoEvento.cpf.notNull}")
     @NotEmpty(message = "${inovapotiguar.entity.enderecoEvento.cpf.notEmpty}")
     private String CPF;

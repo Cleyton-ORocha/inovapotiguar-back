@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
@@ -33,11 +34,12 @@ public class Pesquisa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @NotNull(message = "{inovapotiguar.entity.pesquisa.nome.notnull}")
     @NotEmpty(message = "{inovapotiguar.entity.pesquisa.nome.notEmpty}")
     private String nome;
 
+    @Lob
     @NotNull(message = "{inovapotiguar.entity.pesquisa.texto.notnull}")
     @NotEmpty(message = "{inovapotiguar.entity.pesquisa.texto.notEmpty}")
     private String texto;
@@ -50,29 +52,17 @@ public class Pesquisa {
     private PesquisaCategoria categoria;
 
     @ManyToMany
-    @JoinTable(
-        name = "pesquisa_evento",
-        joinColumns = @JoinColumn(name = "pesquisa_id"),
-        inverseJoinColumns = @JoinColumn(name = "eventos_id")
-    )
+    @JoinTable(name = "pesquisa_evento", joinColumns = @JoinColumn(name = "pesquisa_id"), inverseJoinColumns = @JoinColumn(name = "eventos_id"))
     private List<Evento> eventos;
 
     @ManyToMany
-    @JoinTable(
-        name = "pesquisa_instituicao",
-        joinColumns = @JoinColumn(name = "pesquisa_id"),
-        inverseJoinColumns = @JoinColumn(name = "instiuicao_id")
-    )
+    @JoinTable(name = "pesquisa_instituicao", joinColumns = @JoinColumn(name = "pesquisa_id"), inverseJoinColumns = @JoinColumn(name = "instiuicao_id"))
     private List<Instituicao> instituicoes;
 
     @ManyToMany
-    @JoinTable(
-        name = "pesquisa_pesquisador",
-        joinColumns = @JoinColumn(name = "pesquisa_id"),
-        inverseJoinColumns = @JoinColumn(name = "pesquisador_id")
-    )
+    @JoinTable(name = "pesquisa_pesquisador", joinColumns = @JoinColumn(name = "pesquisa_id"), inverseJoinColumns = @JoinColumn(name = "pesquisador_id"))
     private List<Pesquisador> pesquisadores;
 
     @OneToMany(mappedBy = "pesquisa", fetch = FetchType.LAZY)
-    private List<ImagensPesquisa> imagens;
+    private List<PesquisaImagens> imagens;
 }
